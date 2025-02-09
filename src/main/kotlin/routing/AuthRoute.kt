@@ -12,6 +12,8 @@ fun Route.authRoute(jwtService: JwtService){
         val loginRequest = call.receive<LoginRequest>()
         val token = jwtService.createJwtToken(loginRequest)
 
+        //comment
+
         token?.let {
             call.respond(hashMapOf("token" to it))
         } ?: call.respond(HttpStatusCode.Unauthorized)
